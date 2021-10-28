@@ -1,0 +1,178 @@
+.search-component {
+  background: url(../images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  @include flex(end, center);
+  width: 100vw;
+  height: 100vh;
+
+  .search-box {
+    @include flex(space-around, center);
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    padding-top: 1.5em;
+
+    .content {
+      @include flex(center, center);
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+
+      .logo-box {
+        width: 12em;
+        height: 4em;
+      }
+
+      .search-container {
+        margin-top: 2em;
+        width: 25em;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 6px;
+        overflow: hidden;
+
+        form {
+          .search-field {
+            @include flex(center, center);
+            border-radius: 6px;
+            overflow: hidden;
+
+            input,
+            button {
+              outline: none;
+              border: none;
+            }
+
+            input {
+              width: 100%;
+              padding: 9px 9px;
+              font-weight: bold;
+              &::placeholder {
+                font-weight: bold;
+              }
+            }
+
+            button {
+              color: #fff;
+              background-color: rgb(251, 86, 86);
+              padding: 9px 13px;
+              font-weight: bold;
+              letter-spacing: 1px;
+              @include flex(center, center);
+
+              .search-icon {
+                font-size: 1rem;
+                margin-right: 2px;
+              }
+            }
+          }
+        }
+
+        .suggestions {
+          display: none;
+          margin-top: 1px;
+          position: absolute;
+          width: 25em;
+          border-radius: 6px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          background: #fff;
+
+          ul {
+            list-style: none;
+            padding: 4px 2px;
+
+            li {
+              width: 100%;
+            }
+            li .nav-link {
+              // display: block;
+              outline: none;
+              border: none;
+              text-decoration: none;
+              color: #000;
+              padding: 6px 12px;
+              border-radius: 4px;
+              font-weight: bold;
+              background: transparent;
+              transition: all 0.2s ease-in-out;
+              text-align: left;
+              cursor: pointer;
+
+              &:hover {
+                color: rgb(251, 86, 86);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .fifa-img {
+      width: 70%;
+    }
+
+    img {
+      width: 109%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+// // ** Function to close and open suggestion box
+// const toggleSuggestions = (display) => {
+//   let SuggestionBox = document.getElementById("suggestions-box");
+//   SuggestionBox.style.display = `${display}`;
+// };
+
+// // function setPlayerDetails(Name) {
+// //   if (PlayerList !== []) {
+// //     console.log("setting " + Name + "\n");
+// //     setPlayerList([...PlayerList, Name]);
+// //   } else {
+// //     PlayerList.map((Player) => {
+// //       console.log(Player + " and " + Name);
+
+// //       if (Player !== Name) {
+// //         console.log("setting " + Name + "\n");
+// //         setPlayerList([...PlayerList, Name]);
+// //       }
+// //     });
+// //   }
+// // }
+// /*
+//  Function to show suggestions to the user
+// according to the user input
+// */
+// function getPlayerData(value) {
+//   /*
+//     If use entered only spaces in search input
+//     than no filtering will be performed
+//   */
+//   if (value.replace(/\s/g, "").length) {
+//     let SuggestionList = document.getElementById("suggestion-list");
+//     // ** Clearing the old suggestions after every keyup
+//     SuggestionList.innerHTML = "";
+
+//     playerData.filter(({ Name, Age, Club, Nationality }) => {
+//       /*
+//         Filtering the players by player's NAME , AGE, CLUB, NATIONALITY
+//       */
+//       if (
+//         Name.toLowerCase().includes(value.toLowerCase()) ||
+//         Age === value ||
+//         Club.toLowerCase().includes(value.toLowerCase()) ||
+//         Nationality.toLowerCase().includes(value.toLowerCase())
+//       ) {
+//         toggleSuggestions("block");
+//         // setPlayerList([])
+//         console.log(PlayerList);
+//       } else {
+//         setPlayerList([]);
+//       }
+//     });
+//   } else {
+//     toggleSuggestions("none");
+//   }

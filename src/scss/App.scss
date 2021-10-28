@@ -1,0 +1,29 @@
+@import "./Mixins";
+@import "./Search";
+@import "./Profile";
+@import "./Loader";
+
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap");
+
+::selection{
+  color: #fff;
+  background: rgb(251, 86, 86);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+}
+
+.App{
+ @include flex(end, center) ;
+ width: 100vw;
+ height: 100vh;
+}
